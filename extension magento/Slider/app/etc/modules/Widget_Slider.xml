@@ -1,0 +1,8 @@
+<config>
+	<modules>
+		<Widget_Slider>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Widget_Slider>
+	</modules>
+</config>

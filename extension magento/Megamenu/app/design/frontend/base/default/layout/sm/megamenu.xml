@@ -1,0 +1,7 @@
+<layout>
+	<default>
+		<!--<reference name="top.container">-->
+		<block type="sm_megamenu/menu"></block>
+		<!--</reference>-->
+	</default>
+</layout>

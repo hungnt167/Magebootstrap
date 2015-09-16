@@ -1,0 +1,134 @@
+<?php
+$para  = $this->getParameter();
+$class = strtolower(str_replace(' ', '', $para['label']));
+?>
+<div class="widget">
+    <?php if ($para['show_label']): ?>
+        <div class="widget-title">
+            <h2><?php echo $para['label']; ?></h2>
+        </div
+    <?php endif ?>
+</div>
+<script>
+    jQuery(document).ready(function ($) {
+
+        var options = {
+            $AutoPlay: <?php echo $para['auto']==0?"false":"true" ?>,                              //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+            $AutoPlayInterval: <?php echo $para['speed']==''?"false":$para['speed'] ?>,                           //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+            $PlayOrientation: 2,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+            $DragOrientation: 2,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+
+            $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+                $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                $AutoCenter: 1,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+            }
+
+        };
+
+        var jssor_sliderb<?php echo $class?> = new $JssorSlider$("sliderb_container<?php echo $class?>", options);
+        //responsive code begin
+        //you can remove responsive code if you don't want the slider scales while window resizes
+        function ScaleSlider() {
+            var parentWidth = jssor_sliderb<?php echo $class?>.$Elmt.parentNode.clientWidth;
+            if (parentWidth)
+                jssor_sliderb<?php echo $class?>.$ScaleWidth(Math.min(parentWidth, <?php echo $para['width'] ?>));
+            else
+                window.setTimeout(ScaleSlider, 30);
+        }
+
+        ScaleSlider();
+
+        $(window).bind("load", ScaleSlider);
+        $(window).bind("resize", ScaleSlider);
+        $(window).bind("orientationchange", ScaleSlider);
+        //responsive code end
+    });
+</script>
+<!-- Jssor Slider Begin -->
+<!-- To move inline styles to css file/block, please specify a class name for each element. -->
+<div id="sliderb_container<?php echo $class ?>" style="position: relative; top: 0px; left: 0px; width: 600px;
+        height: 300px; overflow: hidden; margin: 0 auto;">
+
+    <!-- Loading Screen -->
+    <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+        <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000; top: 0px; left: 0px;width: 100%;height:100%;">
+        </div>
+        <div
+            style="position: absolute; display: block; background: url(<?php echo Mage::getBaseUrl('skin') ?>/frontend/base/default/images/jssor/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+        </div>
+    </div>
+
+    <!-- Slides Container -->
+    <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px;
+            overflow: hidden;">
+        <?php
+
+
+        $_sliders = $this->getSlider();
+        $slides   = count($_sliders);
+        ?>
+        <?php foreach ($_sliders as $_slider):
+            ?>
+            <div>
+                <img u="image"
+                     src="<?php echo Mage::helper('widget_slider/image')->getBaseUrl() . '/' . $_slider->getImage() ?>"
+                     alt="<?php echo $_slider->getTitle() ?>"
+                     title="<?php echo $_slider->getTitle() ?>"/>
+
+            </div>
+        <?php endforeach ?>
+    </div>
+
+
+    <style>
+        .jssora05l<?php echo $class?>, .jssora05r<?php echo $class?> {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            overflow: hidden;
+            opacity: .4;
+            filter: alpha(opacity=40);
+            background: url(<?php echo Mage::getBaseUrl('skin')?>/frontend/base/default/images/jssor/a08.png) no-repeat;
+        }
+
+        .jssora05l<?php echo $class?> {
+            background-position: -5px -35px;
+        }
+
+        .jssora05r<?php echo $class?> {
+            background-position: -65px -35px;
+        }
+
+        .jssora05l<?php echo $class?> :hover {
+            background-position: -5px -35px;
+        }
+
+        .jssora05r<?php echo $class?> :hover {
+            background-position: -65px -35px;
+        }
+
+        .jssora05l<?php echo $class?> .jssora05ldn<?php echo $class?> {
+            background-position: -5px -35px;
+        }
+
+        .jssora05r<?php echo $class?> .jssora05rdn<?php echo $class?> {
+            background-position: -65px -35px;
+        }
+    </style>
+    <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora05l<?php echo $class ?>" style="top: 8px !important; left: 8px;">
+        </span>
+    <!-- Arrow Right -->
+        <span u="arrowright" class="jssora05r<?php echo $class ?>" style="bottom:8px !important;8px; left: 8px;">
+        </span>
+
+
+</div>
+<!-- Jssor Slider End -->

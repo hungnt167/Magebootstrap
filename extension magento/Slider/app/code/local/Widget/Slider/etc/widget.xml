@@ -1,0 +1,63 @@
+<widgets>
+	<widgetslider module="widget_slider" type="widget-slider/slider">
+		<name>Slider</name>
+		<description>Show Slider</description>
+		<parameters>
+			<label>
+				<label>Label</label>
+				<description>is Unique</description>
+				<visible>1</visible>
+				<required>1</required>
+				<type>text</type>
+			</label>
+			<show_label>
+				<label>Show label</label>
+				<visible>1</visible>
+				<required>1</required>
+				<value>1</value>
+				<type>select</type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+			</show_label>
+			<slider>
+				<label>Slider</label>
+				<visible>1</visible>
+				<required>1</required>
+				<type>select</type>
+				<source_model>widget_slider/source_slider</source_model>
+			</slider>
+			<width>
+				<label>Width</label>
+				<visible>1</visible>
+				<required>1</required>
+				<type>select</type>
+				<value>1198</value>
+				<source_model>widget_slider/source_width</source_model>
+			</width>
+			<limit>
+				<label>Limit</label>
+				<visible>1</visible>
+				<required>1</required>
+				<type>select</type>
+				<source_model>widget_slider/source_slideQty</source_model>
+			</limit>
+			<auto>
+				<label>Auto</label>
+				<description>Auto play</description>
+				<visible>1</visible>
+				<required>1</required>
+				<type>select</type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+			</auto>
+			<speed>
+				<depends>
+					<auto>1</auto>
+				</depends>
+				<label>Speed</label>
+				<visible>1</visible>
+				<required>1</required>
+				<type>select</type>
+				<source_model>widget_slider/source_speed</source_model>
+			</speed>
+		</parameters>
+	</widgetslider>
+</widgets>

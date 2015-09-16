@@ -1,0 +1,109 @@
+<config>
+
+	<sections>
+		<sm_megamenu_section>
+			<label>Mega menu</label>
+			<tab>sm_x</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>1</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general>
+					<label>General</label>
+					<expanded>1</expanded>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled>
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enabled>
+						<type>
+							<label>Type</label>
+							<frontend_type>select</frontend_type>
+							<source_model>sm_megamenu/source_type</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</type>
+						<column>
+							<label>Number column</label>
+							<sort_order>2</sort_order>
+							<frontend_type>select</frontend_type>
+							<validate>validate-greater-than-zero</validate>
+							<source_model>sm_megamenu/source_column</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</column>
+						<max_level>
+							<label>Max level</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>3</sort_order>
+							<validate>validate-greater-than-zero</validate>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_level>
+						<show_home_link>
+							<label>Show Home Link</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>4</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_store>1</show_in_store>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</show_home_link>
+						<show_form_login>
+							<label>Show Form login</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>4</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_store>1</show_in_store>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</show_form_login>
+						<display_thumbnail_categories>
+							<label>Display Thumbnail Category</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>5</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_store>1</show_in_store>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</display_thumbnail_categories>
+						<show_product_in_empty_category>
+							<label>Display Product in Single Category</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>7</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_store>1</show_in_store>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</show_product_in_empty_category>
+						<quantity_showed_products>
+							<label>Display Product Quantity</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>8</sort_order>
+							<validate>validate-greater-than-zero</validate>
+							<show_in_store>1</show_in_store>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</quantity_showed_products>
+					</fields>
+				</general>
+
+			</groups>
+		</sm_megamenu_section>
+	</sections>
+</config>

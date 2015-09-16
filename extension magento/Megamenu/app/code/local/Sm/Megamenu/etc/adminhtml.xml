@@ -1,0 +1,21 @@
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<sm_megamenu_section module="sm_megamenu">
+										<title>Sm Mega menu</title>
+									</sm_megamenu_section>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

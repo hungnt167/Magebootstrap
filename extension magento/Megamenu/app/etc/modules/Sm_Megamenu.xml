@@ -1,0 +1,8 @@
+<config>
+	<modules>
+		<Sm_Megamenu>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Sm_Megamenu>
+	</modules>
+</config>

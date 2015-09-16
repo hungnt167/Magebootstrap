@@ -1,0 +1,12 @@
+<layout>
+	<widget-slider_slider_index>
+		<reference name="content">
+			<block type="widget-slider/adminhtml_slider"/>
+		</reference>
+	</widget-slider_slider_index>
+	<widget-slider_slide_index>
+		<reference name="content">
+			<block type="widget-slider/adminhtml_slider_slide"/>
+		</reference>
+	</widget-slider_slide_index>
+</layout>
